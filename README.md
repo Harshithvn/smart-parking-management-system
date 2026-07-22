@@ -1,62 +1,82 @@
 # 🚗 Smart Parking Management System
 
-A Full Stack Smart Parking Management System developed using React.js, Spring Boot, and MySQL. The system allows users to park and exit vehicles, calculates parking fees automatically, and provides an Admin Dashboard for monitoring parking slots and revenue.
+A full-stack Smart Parking Management System developed using **React.js, Spring Boot, MySQL, and JWT Authentication**. The system enables secure vehicle parking and exit management, automatic parking fee calculation, PDF receipt generation, parking session tracking, and an Admin Dashboard for monitoring parking operations and revenue.
 
 ---
 
-## 📌 Features
+# 📌 Features
 
-### User Features
-- View available parking slots
-- Park vehicles into available slots
-- Exit vehicles from occupied slots
-- Automatic parking fee calculation
-- Real-time slot availability tracking
+## User Features
 
-### Admin Features
+- User Registration & Login using JWT Authentication
+- Secure access to parking services
+- View available and occupied parking slots
+- Park vehicles by entering vehicle and owner details
+- Automatic parking fee calculation during vehicle exit
+- Generate downloadable PDF parking receipts
+- Real-time parking slot availability updates
+
+## Admin Features
+
 - Secure Admin Login
-- View total parking revenue
+- View parking slot status
 - Monitor occupied and available slots
-- View parking slot details
+- View total parking revenue
 - Reset parking slots
+- Manage parking operations through Admin Dashboard
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠 Tech Stack
 
-### Frontend
+## Frontend
+
 - React.js
 - Axios
 - CSS
+- jsPDF
 
-### Backend
+## Backend
+
 - Java
 - Spring Boot
+- Spring Security
+- JWT Authentication
 - REST APIs
 
-### Database
+## Database
+
 - MySQL
 
-### Tools
+## Tools
+
 - Git
 - GitHub
 - Maven
 
 ---
 
-## 🏗️ Architecture
+# 🏗 Architecture
 
-Frontend (React.js)
-↓
-REST APIs
-↓
+```
+React.js Frontend
+        │
+        ▼
+ RESTful APIs
+        │
+        ▼
 Spring Boot Backend
-↓
-MySQL Database
+        │
+        ▼
+ JWT Authentication
+        │
+        ▼
+ MySQL Database
+```
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```text
 smart-parking-management-system
@@ -67,9 +87,12 @@ smart-parking-management-system
 │   └── package.json
 │
 ├── backend
+│   ├── config
 │   ├── controller
+│   ├── dto
 │   ├── model
 │   ├── repository
+│   ├── security
 │   ├── service
 │   ├── resources
 │   └── pom.xml
@@ -79,22 +102,24 @@ smart-parking-management-system
 
 ---
 
-## 🚀 How to Run
+# 🚀 How to Run
 
-### Backend
+## Backend
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-Runs on:
+Backend runs on
 
-```text
+```
 http://localhost:8080
 ```
 
-### Frontend
+---
+
+## Frontend
 
 ```bash
 cd frontend
@@ -102,43 +127,61 @@ npm install
 npm start
 ```
 
-Runs on:
+Frontend runs on
 
-```text
+```
 http://localhost:3000
 ```
 
 ---
 
-## 🔗 API Endpoints
+# 🔗 REST API Endpoints
 
-### User APIs
+## Authentication
+
+```http
+POST /auth/register
+```
+
+Register a new user.
+
+```http
+POST /auth/login
+```
+
+Authenticate user and generate JWT token.
+
+---
+
+## Parking APIs
 
 ```http
 GET /api/slots
 ```
 
-Get all parking slots.
+Retrieve all parking slots.
 
 ```http
 POST /api/park/{id}
 ```
 
-Park vehicle in selected slot.
+Park a vehicle.
 
 ```http
 POST /api/exit/{id}
 ```
 
-Exit vehicle and calculate parking fee.
+Exit vehicle and generate parking bill.
 
-### Admin APIs
+---
+
+## Admin APIs
 
 ```http
 GET /api/admin/revenue
 ```
 
-Get total revenue.
+Retrieve total parking revenue.
 
 ```http
 POST /api/admin/reset
@@ -148,64 +191,93 @@ Reset all parking slots.
 
 ---
 
-## 🎯 OOP Concepts Used
+# 🔐 Security
+
+- JWT Authentication
+- Spring Security
+- Role-Based Access Control
+- Protected REST APIs
+- Secure Login & Registration
+
+---
+
+# 📊 Key Functionalities
+
+- Parking Slot Management
+- Vehicle Entry & Exit
+- Parking Session Tracking
+- Vehicle & Owner Information Management
+- Automatic Parking Fee Calculation
+- PDF Receipt Generation
+- Revenue Monitoring
+- Admin Dashboard
+- Real-Time Slot Availability
+- RESTful API Architecture
+- Persistent MySQL Database Storage
+
+---
+
+# 🧩 OOP Concepts Used
 
 ### Encapsulation
-- Data members are encapsulated inside model classes.
+
+Data is encapsulated inside entity/model classes.
 
 ### Abstraction
-- Business logic is handled inside service classes.
+
+Business logic is separated into service classes.
 
 ### Inheritance
-- Spring Boot framework classes utilize inheritance internally.
+
+Spring Security and Spring Boot framework components leverage inheritance.
 
 ### Polymorphism
-- Method overriding and dependency injection are used throughout the project.
+
+Method overriding and interface-based programming are used throughout the application.
 
 ### Dependency Injection
-- Implemented using Spring's constructor injection.
+
+Implemented using Spring Boot's constructor-based dependency injection.
 
 ---
 
-## 📊 Key Functionalities
+# 📈 Project Highlights
 
-- Real-time parking slot management
-- Dynamic occupancy tracking
-- Parking fee calculation based on vehicle type
-- Revenue monitoring through Admin Dashboard
-- RESTful API architecture
-- Persistent data storage using MySQL
-
----
-
-## 🔮 Future Enhancements
-
-- Docker Deployment
-- Kafka Integration
-- Elasticsearch Integration
-- Vehicle Number Tracking
-- QR Code Based Entry/Exit
-- Email Notifications
-- AWS Cloud Deployment
-- Parking Analytics Dashboard
+- Full Stack Web Application
+- Object-Oriented Design
+- JWT Authentication
+- Spring Security Integration
+- RESTful API Architecture
+- Parking Session Management
+- Automatic Parking Fee Calculation
+- PDF Receipt Generation
+- Admin Dashboard
+- Revenue Tracking
+- MySQL Database Integration
+- Modular Layered Architecture
 
 ---
 
-## 👨‍💻 Author
+# 🚀 Future Enhancements
+
+- QR Code Based Vehicle Entry & Exit
+- Online Parking Slot Reservation
+- UPI / Payment Gateway Integration
+- Email & SMS Notifications
+- Vehicle Search & Parking History
+- Live Parking Analytics Dashboard
+- Cloud Deployment (AWS)
+
+---
+
+# 👨‍💻 Author
 
 **Harshith V N**
 
-B.Tech – Computer Science & Engineering  
+B.Tech – Computer Science & Engineering
+
 University Visvesvaraya College of Engineering (UVCE)
 
 ---
 
-## ⭐ Project Highlights
-
-- Full Stack Web Application
-- OOP-Based Design
-- REST API Architecture
-- Admin Dashboard
-- Revenue Tracking System
-- MySQL Database Integration
-- Placement-Oriented Project
+⭐ If you found this project useful, consider giving it a star on GitHub.
