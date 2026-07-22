@@ -1,15 +1,18 @@
 package com.smartparking.backend.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "*")
 public class TestController {
 
-    @GetMapping("/test")
-    public String testApi() {
-        return "Backend is working";
+    @GetMapping("/api/test")
+    public String test() {
+        return "Public API Working";
+    }
+
+    @GetMapping("/api/test/secure")
+    public String secure() {
+        return "JWT Authentication Successful!";
     }
 }

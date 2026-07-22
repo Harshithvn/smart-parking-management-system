@@ -1,5 +1,6 @@
 package com.smartparking.backend.controller;
 
+import com.smartparking.backend.model.ParkVehicleRequest;
 import com.smartparking.backend.model.ParkingSlot;
 import com.smartparking.backend.service.ParkingSlotService;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +26,11 @@ public class ParkingSlotController {
     }
 
     @PostMapping("/park/{id}")
-    public ParkingSlot park(@PathVariable Long id) {
-        return service.parkVehicle(id);
+    public ParkingSlot park(
+            @PathVariable Long id,
+            @RequestBody ParkVehicleRequest request
+    ) {
+        return service.parkVehicle(id, request);
     }
 
     @PostMapping("/exit/{id}")
@@ -36,15 +40,12 @@ public class ParkingSlotController {
 
     // ================= ADMIN APIs =================
 
-
-
-    // ✅ RESET SYSTEM
     @PostMapping("/admin/reset")
     public String resetAllSlots() {
         service.resetAllSlots();
         return "All parking slots reset successfully";
     }
-    // ===== ADMIN REVENUE API =====
+
     @GetMapping("/admin/revenue")
     public double getTotalRevenue() {
         return service.getTotalRevenue();

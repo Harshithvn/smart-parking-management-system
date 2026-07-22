@@ -1,16 +1,50 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 function AdminLogin({ onLogin }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-    if (username === "admin" && password === "admin123") {
+  const handleLogin = async () => {
+    setError("");
+
+    if (!email || !password) {
+      setError("Please enter email and password");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+
+      const data = response.data;
+
+      // Store JWT and user details
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
+      localStorage.setItem("email", data.email);
       localStorage.setItem("adminLoggedIn", "true");
+
       onLogin();
-    } else {
-      setError("❌ Invalid credentials");
+    } catch (err) {
+      console.error(err);
+
+      if (err.response) {
+        setError("Invalid email or password");
+      } else {
+        setError("Unable to connect to server");
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -19,9 +53,10 @@ function AdminLogin({ onLogin }) {
       <h3>🔐 Admin Login</h3>
 
       <input
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         style={input}
       />
 
@@ -29,14 +64,14 @@ function AdminLogin({ onLogin }) {
         type="password"
         placeholder="Password"
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
         style={input}
       />
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p style={{ color: "#ff4d4d" }}>{error}</p>}
 
-      <button onClick={handleLogin} style={btn}>
-        Login
+      <button onClick={handleLogin} style={btn} disabled={loading}>
+        {loading ? "Logging in..." : "Login"}
       </button>
     </div>
   );
@@ -57,7 +92,8 @@ const input = {
   padding: "10px",
   margin: "10px 0",
   borderRadius: "6px",
-  border: "none"
+  border: "none",
+  boxSizing: "border-box"
 };
 
 const btn = {
