@@ -279,5 +279,3 @@ B.Tech – Computer Science & Engineering
 University Visvesvaraya College of Engineering (UVCE)
 
 ---
-
-⭐ If you found this project useful, consider giving it a star on GitHub.
