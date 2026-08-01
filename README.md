@@ -1,10 +1,10 @@
-# 🚗 Smart Parking Management System
+#  Smart Parking Management System
 
 A full-stack Smart Parking Management System developed using **React.js, Spring Boot, MySQL, and JWT Authentication**. The system enables secure vehicle parking and exit management, automatic parking fee calculation, PDF receipt generation, parking session tracking, and an Admin Dashboard for monitoring parking operations and revenue.
 
 ---
 
-# 📌 Features
+#  Features
 
 ## User Features
 
@@ -27,7 +27,7 @@ A full-stack Smart Parking Management System developed using **React.js, Spring 
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
 ## Frontend
 
@@ -56,7 +56,7 @@ A full-stack Smart Parking Management System developed using **React.js, Spring 
 
 ---
 
-# 🏗 Architecture
+#  Architecture
 
 ```
 React.js Frontend
@@ -76,7 +76,7 @@ Spring Boot Backend
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 smart-parking-management-system
@@ -102,7 +102,7 @@ smart-parking-management-system
 
 ---
 
-# 🚀 How to Run
+#  How to Run
 
 ## Backend
 
@@ -135,7 +135,7 @@ http://localhost:3000
 
 ---
 
-# 🔗 REST API Endpoints
+#  REST API Endpoints
 
 ## Authentication
 
@@ -191,7 +191,7 @@ Reset all parking slots.
 
 ---
 
-# 🔐 Security
+#  Security
 
 - JWT Authentication
 - Spring Security
@@ -201,7 +201,7 @@ Reset all parking slots.
 
 ---
 
-# 📊 Key Functionalities
+#  Key Functionalities
 
 - Parking Slot Management
 - Vehicle Entry & Exit
@@ -217,7 +217,7 @@ Reset all parking slots.
 
 ---
 
-# 🧩 OOP Concepts Used
+#  OOP Concepts Used
 
 ### Encapsulation
 
@@ -241,7 +241,7 @@ Implemented using Spring Boot's constructor-based dependency injection.
 
 ---
 
-# 📈 Project Highlights
+#  Project Highlights
 
 - Full Stack Web Application
 - Object-Oriented Design
@@ -258,7 +258,7 @@ Implemented using Spring Boot's constructor-based dependency injection.
 
 ---
 
-# 🚀 Future Enhancements
+#  Future Enhancements
 
 - QR Code Based Vehicle Entry & Exit
 - Online Parking Slot Reservation
@@ -270,7 +270,7 @@ Implemented using Spring Boot's constructor-based dependency injection.
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 **Harshith V N**
 
